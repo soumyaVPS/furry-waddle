@@ -7,7 +7,7 @@ plugins {
 group = "org.example"
 version = "1.0-SNAPSHOT"
 application {
-    mainClass.set("Day01Kt")
+    mainClass.set("Day13Kt")
 }
 
 repositories {
