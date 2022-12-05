@@ -5,14 +5,13 @@ fun main() {
     //var acc = mutableListOf<Int>()
 
 
-    fun priority(s: String) : Int{
-        val f = s.substring(0,s.length/2)
-        val s = s.substring(s.length/2)
+    fun priority(group: List<String>) : Int{
+        val fs = group[0].toCharArray().toSet()
+        val ss = group[1].toCharArray().toSet()
+        val ts = group[2].toCharArray().toSet()
 
-
-        val fs = f.toCharArray().toSet()
-        val ss = s.toCharArray().toSet()
-          val common = fs.intersect(ss).first()
+        val common = fs.intersect(ss).intersect(ts).first()
+        println(common)
         val priority = if (common >= 'a')
             common - 'a' +1
         else if
@@ -27,7 +26,7 @@ fun main() {
 //    }
     val input = readInput("Day22_3_test")
 
-    println(input.map{it -> priority(it)}.sum())
+    println(input.chunked(3).map{it -> priority(it)}.sum())
 
     //println(acc.sortedDescending().take(3).sum())
 }
